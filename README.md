@@ -1,2 +1,2 @@
-# HackCalTech
+# HackCaltech
 Hackathon project for Caltech Hackathon
