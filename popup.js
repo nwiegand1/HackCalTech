@@ -1,6 +1,26 @@
-function sentimentAnalysis()
+document.addEventListener('DOMContentLoaded', ()=>{
+    const btn = document.getElementById('submit');
+    btn.addEventListener('click',()=>{
+        chrome.tabs.executeScript(
+
+
+            alert('THIS WORKS')
+            {code: "document.body.innerText;"},
+            function(text) 
+            {
+                const results = getSentimentAnalysis(text);
+            }
+
+
+
+            );
+    }, false);
+}, false);
+
+/*function sentimentAnalysis()
 {
-$(function() {
+    console.log('this works');
+    $(function() {
         var params = {
             // Request parameters
         };
@@ -23,14 +43,30 @@ $(function() {
             alert("error");
         });
     });
-}
+}*/
+/*
 
 var words = chrome.tabs.getSelected(null, function(tab) {
-    chrome.tabs.sendRequest(tab.id, {method: "getText"}, function(response) {
-        if(response.method=="getText"){
-            alltext = response.data;
+    chrome.tabs.sendMessage(tab.id, {method: "getText"}, function(message) {
+        if(message.method=="getText"){
+            alltext = message.data;
         }
     });
 });
 
-console.log(words);
+*/
+
+/*chrome.tabs.executeScript( {
+    code: "document.body.innerText;"
+}, function(text) {
+    const results = getSentimentAnalysis(text);
+});*/
+
+
+/*chrome.tabs.executeScript( {
+    code: "window.getSelection().toString();"
+}, function(selection) {
+    document.getElementById("output").innerHTML = selection[0];
+});
+
+console.log(words);*/
