@@ -13,19 +13,19 @@ var angerPlaylists = ['37i9dQZF1DWU6kYEHaDaGA', '37i9dQZF1DWWJOmJ7nRx0C', '5s7Sp
 
 function choosePlaylist(mood) {
 	var playlist;
-	if (mood == anxiousFear){
+	if (mood == "anxiousFear"){
 		var index = Math.floor(Math.random() * anxiousFearPlaylists.length);
 		playlist = anxiousFearPlaylists[index];
 	}
-	else if (mood == happy){
+	else if (mood == "happy"){
 		var index = Math.floor(Math.random() * happyPlaylists.length);
 		playlist = happyPlaylists[index];
 	}
-	else if (mood == sad){
+	else if (mood == "sad"){
 		var index = Math.floor(Math.random() * sadPlaylists.length);
 		playlist = sadPlaylists[index];
 	}
-	else if (mood == anger){
+	else if (mood == "anger"){
 		var index = Math.floor(Math.random() * angryPlaylists.length);
 		playlist = angryPlaylists[index];
 	}

@@ -30,10 +30,10 @@ function second_popup(mood)
 
 		// detect click
 		// if (click == calm down)
-		//     url = choosePlaylist(anxiousFear)
+		//     url = choosePlaylist("anxiousFear")
 		//     display url or embed() playlist
 		// else if (click == let it out)
-		//     url = choosePlaylist(anger)
+		//     url = choosePlaylist("anger")
 		//     display url or embed() playlist
 		// else
 		//     fade after 10 sec
@@ -48,10 +48,10 @@ function second_popup(mood)
 
 		// detect click
 		// if (click == cheered up)
-		//     url = choosePlaylist(happy)
+		//     url = choosePlaylist("happy")
 		//     display url or embed() playlist
 		// else if (click == feel it out)
-		//     url = choosePlaylist(sad)
+		//     url = choosePlaylist("sad")
 		//     display url or embed() playlist
 		// else
 		//     fade after 10 sec
@@ -63,7 +63,7 @@ function second_popup(mood)
 
 		// detect click
 		// if (click == calm you down)
-		//     url = choosePlaylist(anxiousFear)
+		//     url = choosePlaylist("anxiousFear")
 		//     display url or embed() playlist
 		// else
 		//     fade after 10 sec
