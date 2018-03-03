@@ -16,12 +16,14 @@ string/int/whatever first_popup();
 	// will give starter sentence, then list of emotions [sad], [angry], [etc] depending on relationship_analysis
 	// returns user choice as a string, int, whatever
 	// popup fades away after 10 sec if no interaction, has ability to cancel out of it
+	// can break this up into two functions: 1. determining the starter sentence + buttons and 2. doing the popup
 	// natalie
 string/int/whatever second_popup();
 	// takes in previous value and outputs second value based on that, along with a choice from list of starter sentences
 	// ex. if chose [sad] in previous, then will output "would you like to cheer up [happy] or feel it out [sad]"
 	// returns user choice as string, int, whatever
 	// popup doesn't fade away ever, but has ability to cancel out of it
+	// can break this up into two functions: 1. determining the starter sentence + buttons and 2. doing the popup
 	// natalie
 string pick_playlist();
 	// will take in playlist type from last function and will select random number and pick random playlist from the list
@@ -34,7 +36,6 @@ void embed();
 
 // extra features, if we have time
 // all features will be present in the extension settings (that come up when you click the icon)
-// natalie
 void toggle();
 	// will be able to turn the extension on or off at will
 	// natalie
