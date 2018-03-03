@@ -8,9 +8,18 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": [ "content.js"]
+      "js": [ "jquery-3.3.1.js", "content.js"]
     }
-  ]
+  ],
+
+  "browser_action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+
+  "permissions": [
+        "activeTab"
+    ]
 
 
 
