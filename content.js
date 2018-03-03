@@ -59,6 +59,7 @@ function sentimentAnalysis()
         let documents = { 'documents': [
     { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
     { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
+    { 'id': '3', 'language': 'en', 'text': getText()},
         ]};
 
         let body = JSON.stringify(documents);
@@ -76,6 +77,11 @@ function sentimentAnalysis()
         })
         .done(function(data) {
             alert("success");
+            if (data.documents[0].score > 0.5)
+            {
+                makeYouHappy();
+            }
+            //else youre already reading happy stuff
         })
         .fail(function() {
             alert("error");
@@ -83,9 +89,7 @@ function sentimentAnalysis()
     });
 }
 
-
-
-alert(getText())
+//alert(getText())
 
 sentimentAnalysis()
 
