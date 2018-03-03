@@ -33,4 +33,16 @@ void embed();
 
 
 // extra features, if we have time
-void 
+// all features will be present in the extension settings (that come up when you click the icon)
+// natalie
+void toggle();
+	// will be able to turn the extension on or off at will
+	// natalie
+void blacklist();
+	// will be able to blacklist certain websites (prevent it from running on certain pages)
+	// natalie
+
+// more complicated features
+void add_playlist();
+	// will be able to add personal playlist into database, and extension will save that data for you
+	// natalie and tarini 
