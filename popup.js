@@ -1,24 +1,12 @@
-function getText(){
-    return document.body.innerText
-}
-
-chrome.extension.onRequest.addListener(
-    function(request, sender, sendResponse) {
-        if(request.method == "getText"){
-            sendResponse({data: document.all[0].innerText, method: "getText"}); //same as innerText
-        }
-    }
-);
-
 function sentimentAnalysis()
 {
-	$(function() {
+$(function() {
         var params = {
             // Request parameters
         };
       
         $.ajax({
-            url: "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment?" + $.param(params),
+            url: "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment?" + $.param(params),
             beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type","application/json");
@@ -26,10 +14,9 @@ function sentimentAnalysis()
             },
             type: "POST",
             // Request body
-            data: getText(),
+            data: document.body.innerText,
         })
         .done(function(data) {
-        	//
             alert("success");
         })
         .fail(function() {
@@ -38,4 +25,10 @@ function sentimentAnalysis()
     });
 }
 
-alert("Hello from your Chrome extension!")
+var words = chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.sendRequest(tab.id, {method: "getText"}, function(response) {
+        if(response.method=="getText"){
+            alltext = response.data;
+        }
+    });
+});
