@@ -32,3 +32,5 @@ var words = chrome.tabs.getSelected(null, function(tab) {
         }
     });
 });
+
+console.log(words);
