@@ -54,3 +54,56 @@ What's Next:
 In the future, we want to make our Chrome extension and app more customized to the user (name, playlists, family/friends' numbers). We could also incorporate the Spoitfy API to MoodTunes so that after logging in to their Spotify, they can directly change from MoodTunes the playlists they want linked to certain emotions and even the individual tracks on each album/playlist. For the MoodTunes app, we want to work on implementing the app with the camera so that everytime someone takes a selfie or picture, the app will run and lift their mood! 
 
 Also lots more hackathons!!
+
+
+##Script
+
+#Natalie: Why
+
+Inspired by how we have all noticed how music can really affect your mood. as an an anecdote just yesterday I wasn't listening to music in the morning because I didn't have headphones but then in the evening I got a pair of headphones from Christine and I can definitely say my mood was changed. I was feeling good, I was dancing and groovin, it was great!
+
+A second inspiration was from my personal work on the Teenline hotline where I manned the phone. From my training, I know how important reaching out for help earlier is and how callers have spoken about how the little reminders to reach out make a difference.
+
+Wanting to connect these two interests we created a Google Chrome Extension that monitors the sentiment of the webpages you view and suggests listening to moodboosting music and can suggest reaching out for further help if you have been viewing a lot of negative sentiment sites.
+
+This app takes preventative measures for your mental health and will suggest listening to music and reaching out for help if need be.
+
+Mental health is a 200 billion dollar industry in America (National Alliance on Mental Health) and these preventative measures can help alleviate this cost.
+
+
+#Christine: Demo Walk through
+
+load postivive sentiment site
+
+load negative sentiment site
+
+explain popups are only there for demo purposes to show whats going on in the background of our site.
+
+explain conversation that happens between user and modal that leads user for music selection.
+
+#Tarini: Continue walk through, explain music/twilio, discuss challenges
+
+talk about how listening to music can take place of talking to a friend (in the case that one isn't availible)
+
+explain how we use twilio to connect users with teenline, a mental health hotline, or their saved family member or friend
+
+discuss challenges we ran into:
+  -how google chrome extensions have very specific perspectives, navigating the content security policy was tricky, 
+    -we wanted to change content of the popup based on things happening in the content.js file but this was restricted by chrome's restrictions which required us to use chrome's storage capabilities
+    
+ -we also ran into trouble trying to parse certain websites that had a lot of text content -> msft cognitive services only takes requests of 5100 characters so we needed to limit our requests to that
+ 
+#hongsen: mobile app and what we hope to do in the future
+
+-app is a fun way to explore mood and music
+
+-we hope to incorporate image sentiment analysis as web pages content sentiment can change based on images
+
+-we also hope to further customize the extension so that users can designate trusted facebook friends that they would like to reach out to in the case that their mentally distressed
+
+-we also hope to add further spotify playlist customization
+
+-we also hope to add mood logging so that users can monitor their mood over a period of time
+
+
+
