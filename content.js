@@ -71,6 +71,7 @@ modal.addFooterBtn("nah it's chill, just reading some heavy content lately", 'ti
     modal.close();
 });
 
+// mood options
 var modal2 = new tingle.modal({
     footer: true,
     stickyFooter: false,
@@ -115,7 +116,6 @@ modal2.addFooterBtn('angry', 'tingle-btn tingle-btn--primary', function() {
 });
 
 
-
 // add another button
 modal2.addFooterBtn('maybe later - i\'m good for now', 'tingle-btn tingle-btn--default', function() {
     // here goes some logic
@@ -130,6 +130,7 @@ modal2.addFooterBtn('maybe later - i\'m good for now', 'tingle-btn tingle-btn--d
     });
 });
 
+// further options for sad
 var modal3 = new tingle.modal({
     footer: true,
     stickyFooter: false,
@@ -165,6 +166,7 @@ modal3.addFooterBtn('feel it out', 'tingle-btn tingle-btn--default', function() 
     modal3.close();
 });
 
+// futher options for angry
 var modal4 = new tingle.modal({
     footer: true,
     stickyFooter: false,
@@ -201,7 +203,7 @@ modal4.addFooterBtn('let it out', 'tingle-btn tingle-btn--default', function() {
 });
 
 
-//modal 5
+// if visited several pages
 var modal5 = new tingle.modal({
     footer: true,
     stickyFooter: false,
