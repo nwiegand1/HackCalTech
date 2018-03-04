@@ -47,6 +47,12 @@ chrome.extension.onMessage.addListener(
 );
 */
 
+function makeYouHappy()
+{
+    var txt1 = "<div id="myModal" class="modal"><div><span>&times;</span><p>Some text in the Modal..</p></div></div>"
+    $("body").append(txt1);
+}
+
 function sentimentAnalysis()
 {
 	$(function() {
@@ -77,17 +83,18 @@ function sentimentAnalysis()
         })
         .done(function(data) {
             alert("success");
-            if (data.documents[0].score > 0.5)
+            if (data.documents[0].score < 0.5)
             {
                 makeYouHappy();
             }
-            //else youre already reading happy stuff
+            //else youre already reading happy stuff and don't need to be reminded to be happy!
         })
         .fail(function() {
             alert("error");
         });
     });
 }
+
 
 //alert(getText())
 
