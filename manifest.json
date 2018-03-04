@@ -1,7 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "Mental Health Mood-lifter",
+  "name": "Mood Tunes",
   "version": "1",
+  "description": "Feeling sad, angry or anxious? Get a playlist to help with that.", 
+  "icons": {
+    "16" : "icon.png",
+    "48" : "icon.png",
+    "128": "icon.png"
+  },
 
   "content_scripts": [
     {
