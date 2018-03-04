@@ -2,11 +2,6 @@ function getText(){
     return document.body.innerText
 }
 
-function makeYouHappy()
-{
-    modal.open();
-}
-
 function logSadness()
 {
     var quant;
@@ -15,25 +10,35 @@ function logSadness()
         if (quant == null)
         {
             quant = 1;
-            chrome.storage.local.set({'sadNum': 1});
+            chrome.storage.local.set({'sadNum': quant});
+        }
+        else if (quant == 11)
+        {
+            quant = 1;
+            chrome.storage.local.set({'sadNum': quant})
         }
         else
         {
             quant++;
             chrome.storage.local.set({'sadNum': quant});
         }
-        alert(quant)
+        alert(quant - 1)
     });
 }
-    
-chrome.storage.local.get('sadNum', function(item) {
-    if (item.sadNum > 3)
+
+function makeYouHappy()
+{
+    chrome.storage.local.get('sadNum', function(item) {
+    if (item.sadNum >= 8 && item.sadNum != 11)
+    {
+        modal5.open();
+    }
+    else if (item.sadNum % 3 == 0 && (item.sadNum != 0))
     {
         modal.open();
     }
 });
-
-
+}
 
 //tingle modal
 // instantiate new modal
@@ -63,7 +68,7 @@ chrome.storage.local.get('submitted', function(item) {
             nameToOutput = item.submitted.toString();
         }
     });
-modal.setContent('<h1>hey!</h1> <h1 id="dispName"></h1> <h1> we noticed you might be feeling a bit stressed out.</h1>');
+modal.setContent('<h1>hey! we noticed you might be feeling a bit stressed out.</h1>');
 //modal.setContent(nameToOutput);
 //document.getElementById('dispName').innerHTML = nameToOutput;
 
@@ -78,8 +83,13 @@ modal.addFooterBtn('yeah, a bit', 'tingle-btn tingle-btn--primary', function() {
 modal.addFooterBtn("nah it's chill, just reading some heavy content", 'tingle-btn tingle-btn--danger', function(){
     // here goes some logic
     modal.close();
+    chrome.storage.local.get('sadNum', function(item) {
+    if (item.sadNum >= 6)
+    {
+        modal5.open();
+    }
+    })
 });
-
 // mood options
 var modal2 = new tingle.modal({
     footer: true,
@@ -231,7 +241,7 @@ var modal5 = new tingle.modal({
     }
 });
 
-modal5.setContent('<h1>we\'re concerned about you and have noticed that you have been looking at a lot of heavy content, please reach out to a mental health hotline if you\'re struggling</h1>');
+modal5.setContent('<h1>you\'ve been looking at quite a lot of heavy content and we\'re getting worried. please reach out to a mental health hotline if you\'re struggling.</h1>');
 
 // add a button
 modal5.addFooterBtn('call a mental health hotline - teenline', 'tingle-btn tingle-btn--primary', function() {
@@ -242,6 +252,11 @@ modal5.addFooterBtn('call a mental health hotline - teenline', 'tingle-btn tingl
 });
 
 modal5.addFooterBtn('call a family member', 'tingle-btn tingle-btn--primary', function() {
+    // here goes some logic
+    modal5.close();
+});
+
+modal5.addFooterBtn('call a friend', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
     modal5.close();
 });
