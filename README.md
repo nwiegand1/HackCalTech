@@ -9,7 +9,7 @@ Inspired by our own depressed moods that can result after looking at depressing 
 
 What It Does:
 
-MoodTunes scans webpages and gives these pages a sentiment rating based on the Microsoft Cognitive Services Text Analytics Sentiment Analysis API. Based on this rating, MoodTunes decides whether to engage in a dialog with the user about their mood. The user can let MoodTunes know that they are in fact not in a depressed mood or can confirm their feelings and MoodTunes will suggest some music to play that might brighten their day. If enough web pages with low sentiment ratings are visited, then an option for calling a 
+MoodTunes scans webpages and gives these pages a sentiment rating based on the Microsoft Cognitive Services Text Analytics Sentiment Analysis API. Based on this rating, MoodTunes decides whether to engage in a dialog with the user about their mood. The user can let MoodTunes know that they are in fact not in a depressed mood or can confirm their feelings and MoodTunes will suggest some music to play that might brighten their day. If enough web pages with low sentiment ratings are visited, then an option for calling teenline (a mental health hotline), a friend, or a family member will appear.
 
 As an addition to playing music, in the future we hope to include tools for logging mood and to increase severity of mood messages accordingly.
 
@@ -39,19 +39,15 @@ figuring out how to use the different APIs
 
 making new friends :)
 
-learning a lot and having fun!
+Learning a lot and having fun!
 
-about scope and how you have to make sure things are in the right scope: you cant create alerts in the popup html file because it's out of the popup's scope! breakthru!!
+about scope and how you have to make sure things are in the right scope: you can't create alerts in the popup html file because it's out of the popup's scope! breakthru!!
 
-really struggled with getting the name input to save
+Really struggled with getting the name input to save.
 
 What we learned:
 
-More about JavaScript, html, and how callback functions work.
-
-Got really good at looking through StackOverflow and Google.
-
-Learned how to make ajax post requests that are wayyyy simpler than going through node js and doing it that way.
+We learned a ton about JavaScript, html, and how callback functions work and got really good at looking through StackOverflow and Google along the way. There were a lot of moments where we overcomplicated what we were trying to do by overthinking it. For example, we learned how to make ajax post requests that are wayyyy simpler than going through node js and doing it that way. We also thought we needed a Spotify API when we could just embed the Spotify playlist in a new, smaller window. 
 
 What's Next:
 
