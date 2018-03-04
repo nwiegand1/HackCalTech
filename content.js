@@ -29,11 +29,11 @@ function logSadness()
 function makeYouHappy()
 {
     chrome.storage.local.get('sadNum', function(item) {
-    if (item.sadNum >= 8 && item.sadNum != 11)
+    if (item.sadNum >= 8)
     {
         modal5.open();
     }
-    else if (item.sadNum % 3 == 0 && (item.sadNum != 0))
+    else 
     {
         modal.open();
     }
@@ -209,7 +209,7 @@ modal4.setContent('<h1>what would you like to do?</h1>');
 // add a button
 modal4.addFooterBtn('calm down', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
-    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('anxiousFear')[0]);
+    openInNewTab('<iframe src=https://open.spotify.com/embed/user/spotify/playlist/' + choosePlaylist('anxiousFear')[0]);
     modal4.close();
 });
 
@@ -373,7 +373,7 @@ if(true){
 }
 
 function openInNewTab(url) {
-  var win = window.open(url, '_blank', 'location=yes,height=300,width=300,scrollbars=yes,status=yes, frameborder="0",allow="encrypted-media",allowtransparency="true"');
+  var win = window.open(url, '_blank', 'width=300,height=300,frameborder=0,allowtransparency=true,allow=encrypted-media');
   win.focus();
 }
 
