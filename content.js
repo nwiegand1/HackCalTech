@@ -161,4 +161,28 @@ function addButton()
     button.appendChild(text);
     google.appendChild(button);
 }
+<<<<<<< HEAD
 addButton()*/
+/*
+addButton()
+
+html.lb-banner-added {
+   position: relative;
+   margin-top: 32px;
+}
+#lb-banner {
+   height: 32px;
+   width: 100%;
+   position: absolute;
+   top: -32px;
+   display: none;
+}
+.lb-banner-added #lb-banner { display: block; }
+
+function addBanner()
+{
+	$content = $('<div id='lb-banner'>blah blah</div>');
+	$('html:first').addClass('lb-banner-added').prepend($content);
+}
+addBanner() */
+

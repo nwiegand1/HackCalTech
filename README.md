@@ -24,3 +24,29 @@ Reading through brand new developer docs were challenging and learning JavaScrip
 We also major struggled with coming up with an idea: we wrote a TON down on a piece of paper and wrote up specs for each idea about how they would be implemented as seen on our GoogleDoc: https://docs.google.com/document/d/1MJw_ha2m_8bKs1Vc-VgFSVky4SxMTmlqDdU4PaFrAGE/edit?usp=sharing
 
 We then were divided into who wanted to sleep and who didn't. 
+
+Trying to make requests to MSFT cog services that were too long and didn't know how to cut them down
+
+Accomplishments We're Proud of:
+
+1st Hackathon for 3/4 of us!
+
+Writing our first webapp for 3/4 of us!
+
+figuring out how to use the different APIs
+
+making new friends :)
+
+learning a lot and having fun!
+
+What we learned:
+
+More about JavaScript and how callback functions work
+
+What's Next:
+
+reach out to friends feature more built out
+
+reach out to 911 more built out
+
+Lots more hackathons!!
