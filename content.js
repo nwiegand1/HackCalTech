@@ -55,10 +55,8 @@ var modal = new tingle.modal({
         console.log('modal closed');
     },
     beforeClose: function() {
-        // here's goes some logic
-        // e.g. save content before closing the modal
         return true; // close the modal
-        return false; // nothing happens
+
     }
 });
 
@@ -204,7 +202,6 @@ var modal4 = new tingle.modal({
         // here's goes some logic
         // e.g. save content before closing the modal
         return true; // close the modal
-        return false; // nothing happens
     }
 });
 
@@ -241,7 +238,6 @@ var modal5 = new tingle.modal({
         // here's goes some logic
         // e.g. save content before closing the modal
         return true; // close the modal
-        return false; // nothing happens
     }
 });
 
@@ -368,10 +364,11 @@ function sentimentAnalysis()
     });
 }
 
-//alert(getText())
 
-//var toggleOnOff = document.getElementById("toggleOnOff").value;
+//alert(getText())
+var toggleOnOff = getToggleOnOff();
 if(true){
+    console.log("start sentiment analysis");
 sentimentAnalysis();
 }
 

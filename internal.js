@@ -38,7 +38,7 @@ void embed();
 // all features will be present in the extension settings (that come up when you click the icon)
 void toggle();
 	// will be able to turn the extension on or off at will
-	// natalie
+	// Hongsen Qin
 void blacklist();
 	// will be able to blacklist certain websites (prevent it from running on certain pages)
 	// needs to be able to save data into personalized database
