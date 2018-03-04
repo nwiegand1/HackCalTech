@@ -44,5 +44,5 @@ function choosePlaylist(mood) {
         playlist = angryPlaylists[index];
         title = angryPlaylistsTitles[index];
     }
-    return (playlist, title);
+    return [playlist, title];
 }
