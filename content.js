@@ -55,7 +55,7 @@ chrome.storage.local.get('submitted', function(item) {
         nameToOutput = item.submitted.toString();
     });
 modal.setContent('<h1>hey there!</h1> <h1 id="dispName"></h1> <h1> I noticed you might be feeling low</h1>');
-modal.setContent(nameToOutput);
+//modal.setContent(nameToOutput);
 //document.getElementById('dispName').innerHTML = nameToOutput;
 
 // add a button
@@ -229,8 +229,6 @@ modal5.addFooterBtn('call a family member', 'tingle-btn tingle-btn--primary', fu
     modal5.close();
 });
 
-
-
 function callHotline()
 {
     $(function() {
@@ -264,8 +262,6 @@ function callHotline()
         });
      });   
 }
-
-
 
 function sentimentAnalysis()
 {
@@ -341,8 +337,7 @@ function sentimentAnalysis()
 sentimentAnalysis()
 
 function openInNewTab(url) {
-  var win = window.open(url, '_blank', 'location=yes,height=300,width=300,scrollbars=yes,status=yes,
-    frameborder="0",allow="encrypted-media",allowtransparency="true"');
+  var win = window.open(url, '_blank', 'location=yes,height=300,width=300,scrollbars=yes,status=yes, frameborder="0",allow="encrypted-media",allowtransparency="true"');
   win.focus();
 }
 
