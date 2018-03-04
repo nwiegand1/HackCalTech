@@ -334,8 +334,8 @@ function sentimentAnalysis()
 
 //alert(getText())
 
-var toggleOnOff = document.getElementById("toggleOnOff").value;
-if(toggleOnOff){
+//var toggleOnOff = document.getElementById("toggleOnOff").value;
+if(true){
 sentimentAnalysis();
 }
 
