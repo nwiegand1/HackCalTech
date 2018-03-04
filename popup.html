@@ -12,23 +12,28 @@
 
 <body>
     <form name='textForm'>
+        <h2>Login:</h2>
         <input type='text' id='typedName'>
-        <input type='button' id='submitName' value='submit your name'>
+        <div>
+            <hr>
+        <button class="button" id='submitName' style="vertical-align:middle"><span>Submit Name </span></button>
+    </div>
     </form>
+<hr>
+    <button class="button" id='submit' style="vertical-align:middle"><span>Login </span></button>
+    <h2>Welcome, </h2>
+    <h2 id="displayName"></h2>
 
-    <button id="submit">login</button>
-    <h1>hi</h1>
-    <h1 id="displayName"></h1>
-
-<div id="main" style="padding:30px">
-    <p>Enter your name: <input id="name"></p>
-    <input id="save" type="button" value="SAVE">
+<div id="main" style="padding:0px">
+    <div><input type='text' id='name'></div>
+    <hr>
+    <button class="button" id='save' value="SAVE" style="vertical-align:middle"><span>Save</span></button>
 </div>
 
 <div>
-   <p>Toggle Sentiment Analysis</p>
+    <h2>Toggle Extension</h2>
    <label class="switch">
-  <input type="checkbox" id ="toggleOnOffCheckBox">
+  <input type="checkbox" id ="toggleOnOffCheckBox" checked="true">
   <span class="slider round"></span>
 </label> 
 <script type="text/javascript" src="togglebutton.js"></script>
