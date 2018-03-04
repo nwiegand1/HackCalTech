@@ -25,10 +25,18 @@ function logSadness()
         alert(quant)
     });
 }
+    
+chrome.storage.local.get('sadNum', function(item) {
+    if (item.sadNum > 3)
+    {
+        modal.open();
+    }
+});
+
+
 
 //tingle modal
-
-// instanciate new modal
+// instantiate new modal
 var modal = new tingle.modal({
     footer: true,
     stickyFooter: false,
@@ -52,7 +60,10 @@ var modal = new tingle.modal({
 // set content
 var nameToOutput = "";
 chrome.storage.local.get('submitted', function(item) {
-        nameToOutput = item.submitted.toString();
+        if (item.submitted.toString() != null)
+        {
+            nameToOutput = item.submitted.toString();
+        }
     });
 modal.setContent('<h1>hey!</h1> <h1 id="dispName"></h1> <h1> we noticed you might be feeling a bit stressed out.</h1>');
 //modal.setContent(nameToOutput);
@@ -66,7 +77,7 @@ modal.addFooterBtn('yeah, a bit', 'tingle-btn tingle-btn--primary', function() {
 });
 
 // add another button
-modal.addFooterBtn("nah it's chill, just reading some heavy content lately", 'tingle-btn tingle-btn--danger', function(){
+modal.addFooterBtn("nah it's chill, just reading some heavy content", 'tingle-btn tingle-btn--danger', function(){
     // here goes some logic
     modal.close();
 });
@@ -117,7 +128,7 @@ modal2.addFooterBtn('angry', 'tingle-btn tingle-btn--primary', function() {
 
 
 // add another button
-modal2.addFooterBtn('maybe later - i\'m good for now', 'tingle-btn tingle-btn--default', function() {
+modal2.addFooterBtn('maybe later', 'tingle-btn tingle-btn--default', function() {
     // here goes some logic
     modal2.close();
     //express concern bc have visited lots of sad pages
@@ -198,12 +209,12 @@ modal4.addFooterBtn('calm down', 'tingle-btn tingle-btn--primary', function() {
 // add another button
 modal4.addFooterBtn('let it out', 'tingle-btn tingle-btn--default', function() {
     // here goes some logic
-    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('angry')[0];
+    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('angry')[0]);
     modal4.close();
 });
 
 
-// if visited several pages
+// if visited several sad pages
 var modal5 = new tingle.modal({
     footer: true,
     stickyFooter: false,
