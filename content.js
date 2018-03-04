@@ -57,6 +57,25 @@ function makeYouHappy()
     modal.open();
 }
 
+function logSadness()
+{
+    var quant;
+    chrome.storage.local.get('sadNum', function(item) {
+        quant = item.sadNum;
+        if (quant == null)
+        {
+            quant = 1;
+            chrome.storage.local.set({'sadNum': 1});
+        }
+        else
+        {
+            quant++;
+            chrome.storage.local.set({'sadNum': quant});
+        }
+        alert(quant)
+    });
+}
+
 //tingle modal
 
 // instanciate new modal
@@ -80,10 +99,14 @@ var modal = new tingle.modal({
     }
 });
 
-
-
 // set content
-modal.setContent('<h1>hey there! I noticed you might be feeling low</h1>');
+var nameToOutput = "";
+chrome.storage.local.get('submitted', function(item) {
+        nameToOutput = item.submitted.toString();
+    });
+modal.setContent('<h1>hey there!</h1> <h1 id="dispName"></h1> <h1> I noticed you might be feeling low</h1>');
+modal.setContent(nameToOutput);
+//document.getElementById('dispName').innerHTML = nameToOutput;
 
 // add a button
 modal.addFooterBtn('Yes, I am', 'tingle-btn tingle-btn--primary', function() {
@@ -226,11 +249,13 @@ function sentimentAnalysis()
             end = 5000;
         }
         
-        alert(end);
+        //display number of words to analyse
+        //alert(end);
 
         var words = getText().toString().substring(0, end);
 
-        alert(words);
+        //display words to be analysed
+        //alert(words);
 
        // let word = 'I am so happy!!!!';
 
@@ -239,7 +264,6 @@ function sentimentAnalysis()
     { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
     { 'id': '3', 'language': 'en', 'text': word}
         ]};*/
-
 
         let blahblah = { 'documents': [
     { 'id': '1', 'language': 'en', 'text': words}]};
@@ -264,9 +288,10 @@ function sentimentAnalysis()
             console.log(data);
             alert(data.documents[0].score);
 
-            if (data.documents[0].score < 0.5)
+            if (data.documents[0].score < 0.2)
             {
                 makeYouHappy();
+                logSadness();
             }
             //else youre already reading happy stuff and don't need to be reminded to be happy!
         })
@@ -280,6 +305,7 @@ function sentimentAnalysis()
 
 sentimentAnalysis()
 
+
 function openInNewTab(url) {
   var win = window.open(url, '_blank', 'location=yes,height=300,width=300,scrollbars=yes,status=yes,
     frameborder="0",allow="encrypted-media",allowtransparency="true"');
@@ -287,23 +313,26 @@ function openInNewTab(url) {
 }
 
 /*
+=======
+>>>>>>> a5696bb229615dd4033015b2182b67dab47f7a61
 function addButton()
 {
 	var google = document.getElementById("main");
     var button = document.createElement("button");
     var text = document.createTextNode("test");
     button.appendChild(text);
-    google.appendChild(button);
+    google.prepend(button);
 }
-<<<<<<< HEAD
-addButton()*/
-/*
+
 addButton()
+
+/*
 
 function addBanner()
 {
     $("body").wrapAll("<div class='oldBody'></div>");
     $("body").prepend("<div id='banner'></div>");
 }
-addBanner() */
+addBanner() 
+*/
 
