@@ -51,10 +51,6 @@ We learned a ton about JavaScript, html, and how callback functions work and got
 
 What's Next:
 
-reach out to friends feature more built out
+In the future, we want to make our Chrome extension and app more customized to the user (name, playlists, family/friends' numbers). We could also incorporate the Spoitfy API to MoodTunes so that after logging in to their Spotify, they can directly change from MoodTunes the playlists they want linked to certain emotions and even the individual tracks on each album/playlist. For the MoodTunes app, we want to work on implementing the app with the camera so that everytime someone takes a selfie or picture, the app will run and lift their mood! 
 
-reach out to 911 more built out
-
-more customized to user (name, playlists, family/friends numbers)
-
-Lots more hackathons!!
+Also lots more hackathons!!
