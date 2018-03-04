@@ -66,8 +66,7 @@ modal.addFooterBtn('yeah, a bit', 'tingle-btn tingle-btn--primary', function() {
 });
 
 // add another button
-modal.addFooterBtn('nah it's chill, just reading some heavy content', 'tingle-btn tingle-btn--danger', function())
-{
+modal.addFooterBtn('no it's okay, just reading some heavy content lately, 'tingle-btn tingle-btn--danger', function(){
     // here goes some logic
     modal.close();
 });
