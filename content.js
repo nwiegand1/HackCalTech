@@ -54,19 +54,19 @@ var nameToOutput = "";
 chrome.storage.local.get('submitted', function(item) {
         nameToOutput = item.submitted.toString();
     });
-modal.setContent('<h1>hey there!</h1> <h1 id="dispName"></h1> <h1> I noticed you might be feeling low</h1>');
+modal.setContent('<h1>hey!</h1> <h1 id="dispName"></h1> <h1> we noticed you might be feeling a bit stressed out.</h1>');
 //modal.setContent(nameToOutput);
 //document.getElementById('dispName').innerHTML = nameToOutput;
 
 // add a button
-modal.addFooterBtn('Yes, I am', 'tingle-btn tingle-btn--primary', function() {
+modal.addFooterBtn('yeah, a bit', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
     modal.close();
     modal2.open();
 });
 
 // add another button
-modal.addFooterBtn('no - just have been reading some heavy content lately', 'tingle-btn tingle-btn--danger', function() {
+modal.addFooterBtn('no it's okay, just reading some heavy content lately, 'tingle-btn tingle-btn--danger', function(){
     // here goes some logic
     modal.close();
 });
@@ -334,7 +334,10 @@ function sentimentAnalysis()
 
 //alert(getText())
 
-sentimentAnalysis()
+//var toggleOnOff = document.getElementById("toggleOnOff").value;
+if(true){
+sentimentAnalysis();
+}
 
 function openInNewTab(url) {
   var win = window.open(url, '_blank', 'location=yes,height=300,width=300,scrollbars=yes,status=yes, frameborder="0",allow="encrypted-media",allowtransparency="true"');
