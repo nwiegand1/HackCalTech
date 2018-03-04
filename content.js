@@ -88,7 +88,7 @@ var modal3 = new tingle.modal({
     stickyFooter: false,
     closeMethods: ['overlay', 'button', 'escape'],
     closeLabel: "Close",
-    cssClass: ['custom-class-1', 'custom-class-2'],
+    cssClass: ['custom-class-1', 'custom-class-2', 'custom-class-3'],
     onOpen: function() {
         console.log('modal open');
     },
@@ -119,7 +119,7 @@ modal3.addFooterBtn('anxious', 'tingle-btn tingle-btn--default', function() {
 });
 
 // add another button
-modal3.addFooterBtn('mad', 'tingle-btn tingle-btn--default', function() {
+modal3.addFooterBtn('mad', 'tingle-btn tingle-btn--danger', function() {
     // here goes some logic
     modal3.close();
 });
