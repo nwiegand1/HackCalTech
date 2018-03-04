@@ -49,6 +49,8 @@ More about JavaScript and how callback functions work
 
 got really good at looking through StackOverflow
 
+learned how to make ajax post requests that are wayyyy simpler than going through node js and doing it that way.
+
 What's Next:
 
 reach out to friends feature more built out
