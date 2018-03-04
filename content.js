@@ -308,7 +308,6 @@ function sentimentAnalysis()
 
 sentimentAnalysis()
 
-
 function openInNewTab(url) {
   var win = window.open(url, '_blank', 'location=yes,height=300,width=300,scrollbars=yes,status=yes,
     frameborder="0",allow="encrypted-media",allowtransparency="true"');
@@ -316,18 +315,29 @@ function openInNewTab(url) {
 }
 
 /*
-=======
->>>>>>> a5696bb229615dd4033015b2182b67dab47f7a61
 function addButton()
 {
-	var google = document.getElementById("main");
+    var buttonnode = document.createElement("input");
+    buttonnode.setAttribute('type', 'button');
+    buttonnode.setAttribute('name', 'sal');
+    buttonnode.setAttribute('value', 'sal');
+	var main = document.getElementById("main");
     var button = document.createElement("button");
     var text = document.createTextNode("test");
-    button.appendChild(text);
-    google.prepend(button);
+    buttonnode.appendChild(text);
+    main.prepend(buttonnode);
+
+    buttonnode.onclick = Hi;
 }
 
 addButton()
+
+
+function button()
+{
+    $("body").wrapAll("<div class='wrapper'></div>");
+    $("body").prepend("<div class=''></div>");
+}
 
 /*
 
