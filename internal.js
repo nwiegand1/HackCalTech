@@ -41,9 +41,11 @@ void toggle();
 	// natalie
 void blacklist();
 	// will be able to blacklist certain websites (prevent it from running on certain pages)
+	// needs to be able to save data into personalized database
 	// natalie
 
 // more complicated features
 void add_playlist();
-	// will be able to add personal playlist into database, and extension will save that data for you
+	// will be able to add personal playlist into existing categories or new ones
+	// needs to be able to save data into personalized database
 	// natalie and tarini 

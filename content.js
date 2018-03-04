@@ -97,12 +97,88 @@ modal2.setContent('<h1>Can I suggest that you listen to some music? Here\'s what
 modal2.addFooterBtn('open the playlist', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
     modal2.close();
+    modal3.open();
 });
 
 // add another button
 modal2.addFooterBtn('maybe later', 'tingle-btn tingle-btn--default', function() {
     // here goes some logic
     modal2.close();
+});
+
+var modal3 = new tingle.modal({
+    footer: true,
+    stickyFooter: false,
+    closeMethods: ['overlay', 'button', 'escape'],
+    closeLabel: "Close",
+    cssClass: ['custom-class-1', 'custom-class-2', 'custom-class-3'],
+    onOpen: function() {
+        console.log('modal open');
+    },
+    onClose: function() {
+        console.log('modal closed');
+    },
+    beforeClose: function() {
+        // here's goes some logic
+        // e.g. save content before closing the modal
+        return true; // close the modal
+        return false; // nothing happens
+    }
+});
+
+modal3.setContent('<h1>how are you feeling right now?</h1>');
+
+// add a button
+modal3.addFooterBtn('sad', 'tingle-btn tingle-btn--primary', function() {
+    // here goes some logic
+    modal3.close();
+    modal4.open();
+});
+
+// add another button
+modal3.addFooterBtn('anxious', 'tingle-btn tingle-btn--default', function() {
+    // here goes some logic
+    modal3.close();
+});
+
+// add another button
+modal3.addFooterBtn('mad', 'tingle-btn tingle-btn--danger', function() {
+    // here goes some logic
+    modal3.close();
+});
+
+var modal4 = new tingle.modal({
+    footer: true,
+    stickyFooter: false,
+    closeMethods: ['overlay', 'button', 'escape'],
+    closeLabel: "Close",
+    cssClass: ['custom-class-1', 'custom-class-2'],
+    onOpen: function() {
+        console.log('modal open');
+    },
+    onClose: function() {
+        console.log('modal closed');
+    },
+    beforeClose: function() {
+        // here's goes some logic
+        // e.g. save content before closing the modal
+        return true; // close the modal
+        return false; // nothing happens
+    }
+});
+
+modal4.setContent('<h1>would you like to feel it out or cheer up?</h1>');
+
+// add a button
+modal4.addFooterBtn('cheer up!', 'tingle-btn tingle-btn--primary', function() {
+    // here goes some logic
+    modal4.close();
+});
+
+// add another button
+modal4.addFooterBtn('feel it out', 'tingle-btn tingle-btn--default', function() {
+    // here goes some logic
+    modal4.close();
 });
 
 function sentimentAnalysis()
@@ -191,23 +267,10 @@ addButton()*/
 /*
 addButton()
 
-html.lb-banner-added {
-   position: relative;
-   margin-top: 32px;
-}
-#lb-banner {
-   height: 32px;
-   width: 100%;
-   position: absolute;
-   top: -32px;
-   display: none;
-}
-.lb-banner-added #lb-banner { display: block; }
-
 function addBanner()
 {
-	$content = $('<div id='lb-banner'>blah blah</div>');
-	$('html:first').addClass('lb-banner-added').prepend($content);
+    $("body").wrapAll("<div class='oldBody'></div>");
+    $("body").prepend("<div id='banner'></div>");
 }
 addBanner() */
 
