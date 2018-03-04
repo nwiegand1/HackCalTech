@@ -137,7 +137,7 @@ function sentimentAnalysis()
             console.log(data);
             alert(data.documents[0].score);
 
-            if (data.documents[0].score < 0.5)
+            if (data.documents[0].score < 0.2)
             {
                 makeYouHappy();
             }
@@ -152,24 +152,25 @@ function sentimentAnalysis()
 //alert(getText())
 
 sentimentAnalysis()
-/*
+
 function addButton()
 {
 	var google = document.getElementById("main");
     var button = document.createElement("button");
     var text = document.createTextNode("test");
     button.appendChild(text);
-    google.appendChild(button);
+    google.prepend(button);
 }
-<<<<<<< HEAD
-addButton()*/
-/*
+
 addButton()
+
+/*
 
 function addBanner()
 {
     $("body").wrapAll("<div class='oldBody'></div>");
     $("body").prepend("<div id='banner'></div>");
 }
-addBanner() */
+addBanner() 
+*/
 
