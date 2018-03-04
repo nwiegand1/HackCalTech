@@ -1,8 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('submit').addEventListener('click', clickHandler);
-  document.getElementById('save').addEventListener('click', saveFunction);
+  document.getElementById('submitPhoneNumber').addEventListener('click', savePhoneFunction);
   document.getElementById('submitName').addEventListener('click', submitNameFunction);
+
 });
+checkIfNameAlready();
+
+function checkIfNameAlready()
+{
+    var nameSaved;
+    chrome.storage.local.get('submitted', function(item) {
+        nameSaved = item.submitted;
+        if (nameSaved != null)
+        {
+            document.getElementById('displayName').innerHTML = nameToOutput;
+        }
+    }); 
+}
 
 function submitNameFunction()
 {
@@ -15,25 +28,12 @@ function submitNameFunction()
     });
 }
 
-function clickHandler(e)
+function savePhoneFunction(e) 
 {
-    //alert('got to the log in button');
-    setTimeout(awesomeTask, 1000);
-    console.log('logggggg');
+    chrome.storage.local.set({'trustedPhone': document.getElementById('typedPhonenumber').value});
+    chrome.storage.local.set({'trustedPerson': document.getElementById('typedTrusted').value});
 }
 
-function awesomeTask()
-{
-    console.log('logggggg');
-    alert('got to the log in button');
-}
-
-function saveFunction(e) 
-{
-    console.log('saved name');
-    chrome.storage.local.set({'name': document.getElementById('name').value});
-
-}
 
 //var port = chrome.runtime.connect();
 
