@@ -1,3 +1,19 @@
+
+/*
+document.addEventListener("DOMContentLoaded", function (event) {
+    var _selector = document.querySelector('input[name=toggleOnOff]');
+    _selector.addEventListener('change', function (event) {
+        if (_selector.checked) {
+            chrome.storage.local.set({'toggleOnOff': true});
+            console.log("toggle extension to on");
+        } else {
+            chrome.storage.local.set({'toggleOnOff': false});
+            console.log("toggle extension to off");
+        }
+    });
+});*/
+
+
 function getText(){
     return document.body.innerText
 }
@@ -42,10 +58,8 @@ var modal = new tingle.modal({
         console.log('modal closed');
     },
     beforeClose: function() {
-        // here's goes some logic
-        // e.g. save content before closing the modal
         return true; // close the modal
-        return false; // nothing happens
+
     }
 });
 
@@ -173,7 +187,6 @@ var modal4 = new tingle.modal({
         // here's goes some logic
         // e.g. save content before closing the modal
         return true; // close the modal
-        return false; // nothing happens
     }
 });
 
@@ -210,7 +223,6 @@ var modal5 = new tingle.modal({
         // here's goes some logic
         // e.g. save content before closing the modal
         return true; // close the modal
-        return false; // nothing happens
     }
 });
 
@@ -332,9 +344,33 @@ function sentimentAnalysis()
     });
 }
 
+/*
 //alert(getText())
+function getToggleOnOff()
+{
+    var toggle;
+    chrome.storage.local.get('toggleOnOff', function(item) {
+        toggle = item.toggleOnOff;
+        if (toggle == null)
+        {
+            toggle = true;
+            chrome.storage.local.set({'toggleOnOff': true});
+            document.getElementById("toggleOnOff").checked = true;
+        }
+        else
+        {
+            document.getElementById("toggleOnOff").checked = toggle;
 
-//var toggleOnOff = document.getElementById("toggleOnOff").value;
+        }
+        alert(toggle);
+    });
+    return toggle;
+}
+
+*/
+
+
+//var toggleOnOff = getToggleOnOff();
 if(true){
 sentimentAnalysis();
 }
