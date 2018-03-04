@@ -58,7 +58,7 @@ var modal = new tingle.modal({
 // set content
 var nameToOutput = "";
 chrome.storage.local.get('submitted', function(item) {
-        if (item.submitted.toString() != null)
+        if (item.submitted != null)
         {
             nameToOutput = item.submitted.toString();
         }
@@ -351,10 +351,10 @@ function sentimentAnalysis()
 
 
 //alert(getText())
-var toggleOnOff = getToggleOnOff();
+//var toggleOnOff = getToggleOnOff();
 if(true){
     console.log("start sentiment analysis");
-sentimentAnalysis();
+    sentimentAnalysis();
 }
 
 function openInNewTab(url) {
