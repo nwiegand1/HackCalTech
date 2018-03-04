@@ -6,11 +6,13 @@
     <title>Popup</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script type="text/javascript" src="popup.js"></script>
+    <link rel="stylesheet" href="switch.css">
+
 </head>
 
 <body>
 
-    <h1>hi</h1>
+    <h1>    hi</h1>
     <h1 id="displayName"></h1>
     <br>
 
@@ -18,8 +20,12 @@
         Your Name:
         <br>
         <input type='text' id='typedName'>
-        <input type='button' id='submitName' value='submit your name'>
+        <div>
+            <hr>
+        <button class="button" id='submitName' style="vertical-align:middle"><span>Submit Name </span></button>
+    </div>
     </form>
+<hr>
 
     <form name='anotherTextForm'>
         Trusted Person's Name:
@@ -32,6 +38,15 @@
         
         <input type='button' id='submitPhoneNumber' value='submit a trusted friend or family member s number'>
     </form>
+
+<div>
+    <h2>Toggle Extension</h2>
+   <label class="switch">
+  <input type="checkbox" id ="toggleOnOffCheckBox" checked="true">
+  <span class="slider round"></span>
+</label> 
+<script type="text/javascript" src="togglebutton.js"></script>
+</div>
 
 </body>
 </html>

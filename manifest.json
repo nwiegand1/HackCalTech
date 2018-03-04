@@ -1,13 +1,19 @@
 {
   "manifest_version": 2,
-  "name": "Mental Health Mood-lifter",
+  "name": "Mood Tunes",
   "version": "1",
+  "description": "Feeling sad, angry or anxious? Get a playlist to help with that.", 
+  "icons": {
+    "16" : "icon.png",
+    "48" : "icon.png",
+    "128": "icon.png"
+  },
 
   "content_scripts": [
     {
       "matches": ["<all_urls>", "http://www.google.com/*"],
       "js": [ "tingle.js", "jquery-3.3.1.js", "content.js" ],
-      "css": ["tingle.css", "banner.css"]
+      "css": ["tingle.css", "button.css","switch.css"]
     }
   ],
 

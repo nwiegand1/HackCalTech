@@ -2,11 +2,6 @@ function getText(){
     return document.body.innerText
 }
 
-function makeYouHappy()
-{
-    modal.open();
-}
-
 function logSadness()
 {
     var quant;
@@ -15,20 +10,38 @@ function logSadness()
         if (quant == null)
         {
             quant = 1;
-            chrome.storage.local.set({'sadNum': 1});
+            chrome.storage.local.set({'sadNum': quant});
+        }
+        else if (quant == 11)
+        {
+            quant = 1;
+            chrome.storage.local.set({'sadNum': quant})
         }
         else
         {
             quant++;
             chrome.storage.local.set({'sadNum': quant});
         }
-        alert(quant)
+        alert(quant - 1)
     });
 }
 
-//tingle modal
+function makeYouHappy()
+{
+    chrome.storage.local.get('sadNum', function(item) {
+    if (item.sadNum >= 8 && item.sadNum != 11)
+    {
+        modal5.open();
+    }
+    else if (item.sadNum % 3 == 0 && (item.sadNum != 0))
+    {
+        modal.open();
+    }
+});
+}
 
-// instanciate new modal
+//tingle modal
+// instantiate new modal
 var modal = new tingle.modal({
     footer: true,
     stickyFooter: false,
@@ -42,35 +55,42 @@ var modal = new tingle.modal({
         console.log('modal closed');
     },
     beforeClose: function() {
-        // here's goes some logic
-        // e.g. save content before closing the modal
         return true; // close the modal
-        return false; // nothing happens
+
     }
 });
 
 // set content
 var nameToOutput = "";
 chrome.storage.local.get('submitted', function(item) {
-        nameToOutput = item.submitted.toString();
+        if (item.submitted != null)
+        {
+            nameToOutput = item.submitted.toString();
+        }
     });
-modal.setContent('<h1>hey there!</h1> <h1 id="dispName"></h1> <h1> I noticed you might be feeling low</h1>');
+modal.setContent('<h1>hey! we noticed you might be feeling a bit stressed out.</h1>');
 //modal.setContent(nameToOutput);
 //document.getElementById('dispName').innerHTML = nameToOutput;
 
 // add a button
-modal.addFooterBtn('Yes, I am', 'tingle-btn tingle-btn--primary', function() {
+modal.addFooterBtn('yeah, a bit', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
     modal.close();
     modal2.open();
 });
 
 // add another button
-modal.addFooterBtn('no - just have been reading some heavy content lately', 'tingle-btn tingle-btn--danger', function() {
+modal.addFooterBtn("nah it's chill, just reading some heavy content", 'tingle-btn tingle-btn--danger', function(){
     // here goes some logic
     modal.close();
+    chrome.storage.local.get('sadNum', function(item) {
+    if (item.sadNum >= 6)
+    {
+        modal5.open();
+    }
+    })
 });
-
+// mood options
 var modal2 = new tingle.modal({
     footer: true,
     stickyFooter: false,
@@ -91,14 +111,29 @@ var modal2 = new tingle.modal({
     }
 });
 
-modal2.setContent('<h1>Can I suggest that you listen to some music to lighten your mood? Here\'s what I\'d reccommend:</h1>');
+modal2.setContent('<h1> let\'s make a playlist to help you out. how are you feeling right now? </h1>');
 
 // add a button
-modal2.addFooterBtn('open playlist options', 'tingle-btn tingle-btn--primary', function() {
+modal2.addFooterBtn('sad', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
     modal2.close();
     modal3.open();
 });
+
+// add another button
+modal2.addFooterBtn('anxious', 'tingle-btn tingle-btn--default', function() {
+    // here goes some logic
+    modal2.close();
+    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('anxiousFear')[0]);
+});
+
+// add a button
+modal2.addFooterBtn('angry', 'tingle-btn tingle-btn--primary', function() {
+    // here goes some logic
+    modal2.close();
+    modal4.open();
+});
+
 
 // add another button
 modal2.addFooterBtn('maybe later', 'tingle-btn tingle-btn--default', function() {
@@ -114,6 +149,7 @@ modal2.addFooterBtn('maybe later', 'tingle-btn tingle-btn--default', function() 
     });
 });
 
+// further options for sad
 var modal3 = new tingle.modal({
     footer: true,
     stickyFooter: false,
@@ -134,29 +170,22 @@ var modal3 = new tingle.modal({
     }
 });
 
-modal3.setContent('<h1>how are you feeling right now?</h1>');
-
+modal3.setContent('<h1>what would you like to do?</h1>');
 // add a button
-modal3.addFooterBtn('sad', 'tingle-btn tingle-btn--primary', function() {
+modal3.addFooterBtn('cheer up!', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
+    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('happy')[0]);
     modal3.close();
-    modal4.open();
 });
 
 // add another button
-modal3.addFooterBtn('anxious', 'tingle-btn tingle-btn--default', function() {
+modal3.addFooterBtn('feel it out', 'tingle-btn tingle-btn--default', function() {
     // here goes some logic
+    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('sad')[0]);
     modal3.close();
-    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('anxiousFear')[0]);
 });
 
-// add another button
-modal3.addFooterBtn('angry', 'tingle-btn tingle-btn--danger', function() {
-    // here goes some logic
-    modal3.close();
-    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('angry')[0]);
-});
-
+// futher options for angry
 var modal4 = new tingle.modal({
     footer: true,
     stickyFooter: false,
@@ -173,27 +202,26 @@ var modal4 = new tingle.modal({
         // here's goes some logic
         // e.g. save content before closing the modal
         return true; // close the modal
-        return false; // nothing happens
     }
 });
 
-modal4.setContent('<h1>would you like to feel it out or cheer up?</h1>');
-
+modal4.setContent('<h1>what would you like to do?</h1>');
 // add a button
-modal4.addFooterBtn('cheer up!', 'tingle-btn tingle-btn--primary', function() {
+modal4.addFooterBtn('calm down', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
-    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('happy')[0]);
+    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('anxiousFear')[0]);
     modal4.close();
 });
 
 // add another button
-modal4.addFooterBtn('feel it out', 'tingle-btn tingle-btn--default', function() {
+modal4.addFooterBtn('let it out', 'tingle-btn tingle-btn--default', function() {
     // here goes some logic
-    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('sad')[0]);
+    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('angry')[0]);
     modal4.close();
 });
 
-//modal 5
+
+// if visited several sad pages
 var modal5 = new tingle.modal({
     footer: true,
     stickyFooter: false,
@@ -210,11 +238,10 @@ var modal5 = new tingle.modal({
         // here's goes some logic
         // e.g. save content before closing the modal
         return true; // close the modal
-        return false; // nothing happens
     }
 });
 
-modal5.setContent('<h1>we\'re concerned about you and have noticed that you have been looking at a lot of heavy content, please reach out to a mental health hotline if you\'re struggling</h1>');
+modal5.setContent('<h1>you\'ve been looking at quite a lot of heavy content and we\'re getting worried. please reach out to a mental health hotline if you\'re struggling.</h1>');
 
 // add a button
 modal5.addFooterBtn('call a mental health hotline - teenline', 'tingle-btn tingle-btn--primary', function() {
@@ -225,6 +252,11 @@ modal5.addFooterBtn('call a mental health hotline - teenline', 'tingle-btn tingl
 });
 
 modal5.addFooterBtn('call a family member', 'tingle-btn tingle-btn--primary', function() {
+    // here goes some logic
+    modal5.close();
+});
+
+modal5.addFooterBtn('call a friend', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
     modal5.close();
 });
@@ -332,9 +364,13 @@ function sentimentAnalysis()
     });
 }
 
-//alert(getText())
 
-sentimentAnalysis()
+//alert(getText())
+//var toggleOnOff = getToggleOnOff();
+if(true){
+    console.log("start sentiment analysis");
+    sentimentAnalysis();
+}
 
 function openInNewTab(url) {
   var win = window.open(url, '_blank', 'location=yes,height=300,width=300,scrollbars=yes,status=yes, frameborder="0",allow="encrypted-media",allowtransparency="true"');
@@ -343,8 +379,8 @@ function openInNewTab(url) {
 
 //all the playlist IDs and titles
 var anxiousFearPlaylists = ['37i9dQZF1DX4sWSpwq3LiO', '37i9dQZF1DX3Ogo9pFvBkY', '37i9dQZF1DXcCnTAt8CfNe', 
-'7A2YimOfIrmAWkCeSIY8Rq', '37i9dQZF1DWU0ScTcjJBdj', '37i9dQZF1DX3PIPIT6lEg5', '37i9dQZF1DX1s9knjP51Oa', 
-'37i9dQZF1DXa9xHlDa5fc6', '37i9dQZF1DWTkxQvqMy4WW', '37i9dQZF1DX8ymr6UES7vc', '37i9dQZF1DWZqd5JICZI0u'];
+'37i9dQZF1DWU0ScTcjJBdj', '37i9dQZF1DX3PIPIT6lEg5', '37i9dQZF1DX1s9knjP51Oa', '37i9dQZF1DXa9xHlDa5fc6', 
+'37i9dQZF1DWTkxQvqMy4WW', '37i9dQZF1DX8ymr6UES7vc', '37i9dQZF1DWZqd5JICZI0u'];
 
 var happyPlaylists = ['37i9dQZF1DX3rxVfibe1L0', '37i9dQZF1DX7KNKjOK0o75', '37i9dQZF1DWYBO1MoTDhZI', 
 '37i9dQZF1DXdPec7aLTmlC', '37i9dQZF1DWSkMjlBZAZ07', '37i9dQZF1DX9XIFQuFvzM4', '37i9dQZF1DX2sUQwD7tbmL', 
@@ -355,7 +391,7 @@ var sadPlaylists = ['37i9dQZF1DX3YSRoSdA634', '37i9dQZF1DWSqBruwoIXkA', '37i9dQZ
 var angryPlaylists = ['37i9dQZF1DWU6kYEHaDaGA', '37i9dQZF1DWWJOmJ7nRx0C', '5s7Sp5OZsw981I2OkQmyrz', 
 '37i9dQZF1DWTcqUzwhNmKv', '37i9dQZF1DWXIcbzpLauPS'];
 
-var anxiousFearPlaylistsTitles = ['Peaceful Piano', 'Ambient Chill', 'Musical Therapy', 'Calm Classics', 'Relax & Unwind', 
+var anxiousFearPlaylistsTitles = ['Peaceful Piano', 'Ambient Chill', 'Musical Therapy', 'Relax & Unwind', 
 'Microtherapy', 'Calm Vibes', 'License to Chill', 'Chillin on a Dirt Road', 'Rain Sounds', 'Peaceful Meditation'];
 
 var happyPlaylistsTitles = ['Mood Booster', 'Have a Great Day!', 'Good Vibes', 'Happy Hits', 'Happy Folk', 'Feelin Good', 

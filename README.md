@@ -1,4 +1,4 @@
-# HackCaltech
+# Hacktech - MoodTunes Chrome Extension
 Hackathon project for Caltech Hackathon
 
 Google Chrome Extension that analyzes sentiment on websites and if notices negative sentiment, prompts you to think about your mood and listen to some happy music.
@@ -9,23 +9,25 @@ Inspired by our own depressed moods that can result after looking at depressing 
 
 What It Does:
 
-Mood Lifter scans webpages and gives these pages a sentiment rating based on the Microsoft Cognitive Services Text Analytics Sentiment Analysis API. Based on this rating, Mood Lifter decides whether to engage in a dialog with the user about their mood. The user can let Mood Lifter know that they are in fact not in a depressed mood or can confirm their feelings and Mood Lifter will suggest some music to play that might brighten their day.
+MoodTunes scans webpages and gives these pages a sentiment rating based on the Microsoft Cognitive Services Text Analytics Sentiment Analysis API. Based on this rating, MoodTunes decides whether to engage in a dialog with the user about their mood. The user can let MoodTunes know that they are in fact not in a depressed mood or can confirm their feelings and MoodTunes will suggest some music to play that might brighten their day. If enough web pages with low sentiment ratings are visited, then an option for calling teenline (a mental health hotline), a friend, or a family member will appear.
 
 As an addition to playing music, in the future we hope to include tools for logging mood and to increase severity of mood messages accordingly.
 
 How We Built it:
 
-We built this using JavaScript and learned Ajax and how to parse JSON files. We used the Microsoft Cognitive Services Text Analytics Sentiment Analysis API for the sentiment analysis and the Spotify API for the music suggestion.
+We built this using JavaScript and learned Ajax and how to parse JSON files. We used the Microsoft Cognitive Services Text Analytics Sentiment Analysis API for the sentiment analysis and the Twilio API for the calling function.
 
 Challenges We Ran into:
 
 Reading through brand new developer docs were challenging and learning JavaScript was challenging as well. We struggled with figuring out the best way for the Chrome extension to access the page contents and sent a POST request to MSFT Cognitive Services.
 
-We also major struggled with coming up with an idea: we wrote a TON down on a piece of paper and wrote up specs for each idea about how they would be implemented as seen on our GoogleDoc: https://docs.google.com/document/d/1MJw_ha2m_8bKs1Vc-VgFSVky4SxMTmlqDdU4PaFrAGE/edit?usp=sharing
+We also struggled with coming up with an idea: we wrote a TON down on a piece of paper and wrote up specs for each idea about how they would be implemented as seen on our GoogleDoc: https://docs.google.com/document/d/1MJw_ha2m_8bKs1Vc-VgFSVky4SxMTmlqDdU4PaFrAGE/edit?usp=sharing
+
+We had trouble with deciding the formats our extension would work in. We started thinking of popups, considered banners, and then we finally settled on making our own modals.
 
 We then were divided into who wanted to sleep and who didn't. 
 
-Trying to make requests to MSFT cog services that were too long and didn't know how to cut them down
+Trying to make requests to MSFT cog services that were too long and didn't know how to cut them down.
 
 Accomplishments We're Proud of:
 
@@ -37,24 +39,18 @@ figuring out how to use the different APIs
 
 making new friends :)
 
-learning a lot and having fun!
+Learning a lot and having fun!
 
-about scope and how you have to make sure things are in the right scope: you cant create alerts in the popup html file because it's out of the popup's scope! breakthru!!
+about scope and how you have to make sure things are in the right scope: you can't create alerts in the popup html file because it's out of the popup's scope! breakthru!!
 
-really struggled with getting the name input to save
+Really struggled with getting the name input to save.
 
 What we learned:
 
-More about JavaScript and how callback functions work
-
-got really good at looking through StackOverflow
-
-learned how to make ajax post requests that are wayyyy simpler than going through node js and doing it that way.
+We learned a ton about JavaScript, html, and how callback functions work and got really good at looking through StackOverflow and Google along the way. There were a lot of moments where we overcomplicated what we were trying to do by overthinking it. For example, we learned how to make ajax post requests that are wayyyy simpler than going through node js and doing it that way. We also thought we needed a Spotify API when we could just embed the Spotify playlist in a new, smaller window. 
 
 What's Next:
 
-reach out to friends feature more built out
+In the future, we want to make our Chrome extension and app more customized to the user (name, playlists, family/friends' numbers). We could also incorporate the Spoitfy API to MoodTunes so that after logging in to their Spotify, they can directly change from MoodTunes the playlists they want linked to certain emotions and even the individual tracks on each album/playlist. For the MoodTunes app, we want to work on implementing the app with the camera so that everytime someone takes a selfie or picture, the app will run and lift their mood! 
 
-reach out to 911 more built out
-
-Lots more hackathons!!
+Also lots more hackathons!!

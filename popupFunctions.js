@@ -40,10 +40,10 @@ function second_popup(mood)
 	}
 	else if (mood == "sad")
 	{
-		starter = "Would you like to be ";
-		// do button for [cheered up]
-		cont1 = " or ";
+		starter = "Would you like to ";
 		// do button for [feel it out]
+		cont1 = " or ";
+		// do button for [cheer up]
 		cont2 = "?";
 
 		// detect click
