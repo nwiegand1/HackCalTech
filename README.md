@@ -39,9 +39,15 @@ making new friends :)
 
 learning a lot and having fun!
 
+about scope and how you have to make sure things are in the right scope: you cant create alerts in the popup html file because it's out of the popup's scope! breakthru!!
+
+really struggled with getting the name input to save
+
 What we learned:
 
 More about JavaScript and how callback functions work
+
+got really good at looking through StackOverflow
 
 What's Next:
 
