@@ -91,21 +91,31 @@ function sentimentAnalysis()
 
         var docs = {'id' : '1', 'language': 'en', 'text' : getText()};
 
-        let words = getText().toString();
+        //content size should be min between size and 5100
+        var end = getText().toString().length;
 
-        //alert(words);
+        if (end > 5000)
+        {
+            end = 5000;
+        }
+        
+        alert(end);
 
-        let word = 'I am so happy!!!!';
+        var words = getText().toString().substring(0, end);
 
-        let documents = { 'documents': [
+        alert(words);
+
+       // let word = 'I am so happy!!!!';
+
+     /*   let documents = { 'documents': [
     { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
     { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
     { 'id': '3', 'language': 'en', 'text': word}
-        ]};
+        ]};*/
 
 
         let blahblah = { 'documents': [
-    { 'id': '1', 'language': 'en', 'text': getText()}]};
+    { 'id': '1', 'language': 'en', 'text': words}]};
 
         let body = JSON.stringify(blahblah);
 
@@ -124,10 +134,11 @@ function sentimentAnalysis()
         })
         .done(function(data) {
             alert("success");
+            console.log(data);
             alert(data.documents[0].score);
+
             if (data.documents[0].score < 0.5)
             {
-
                 makeYouHappy();
             }
             //else youre already reading happy stuff and don't need to be reminded to be happy!
@@ -138,11 +149,10 @@ function sentimentAnalysis()
     });
 }
 
-
 //alert(getText())
 
 sentimentAnalysis()
-
+/*
 function addButton()
 {
 	var google = document.getElementById("main");
@@ -151,4 +161,4 @@ function addButton()
     button.appendChild(text);
     google.appendChild(button);
 }
-addButton()
+addButton()*/

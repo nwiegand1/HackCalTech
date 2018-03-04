@@ -1,11 +1,24 @@
+//var port = chrome.runtime.connect();
+
+document.getElementById('save').onclick = function() {
+    alert('fkn got hereasdfasdfasdf');
+    console.log('logggggg')
+};
+/*
+chrome.storage.local.get(['name'], function(items) {
+        alert(items);
+        document.getElementById('displayName').innerHTML = items;
+    });
+*/
+
+/*
 document.addEventListener('DOMContentLoaded', ()=>{
     const btn = document.getElementById('submit');
     btn.addEventListener('click',()=>{
         chrome.tabs.executeScript(
 
-
             alert('THIS WORKS')
-            {code: "document.body.innerText;"},
+            
             function(text) 
             {
                 const results = getSentimentAnalysis(text);
@@ -14,8 +27,31 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
             );
-    }, false);
-}, false);
+    });
+});
+*/
+
+/*
+window.addEventListener('load', function load(event) {
+    chrome.storage.local.get('name', function(result) {
+        if (result != undefined && result.name != undefined) {
+            document.getElementById('name').value = result.name;
+        }
+    });
+    document.getElementById('save').onclick = function() {
+        console.log('got here');
+        alert('got here');
+        chrome.storage.local.set({'name': document.getElementById('name').value});
+    };
+});
+*/
+
+document.getElementById('save').onclick = trynaFunction;
+
+function trynaFunction()
+{
+    alert('in the functionssskskksks');
+}
 
 /*function sentimentAnalysis()
 {
