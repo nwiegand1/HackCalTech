@@ -144,7 +144,7 @@ var modal2 = new tingle.modal({
 modal2.setContent('<h1>Can I suggest that you listen to some music? Here\'s what I\'d reccommend:</h1>');
 
 // add a button
-modal2.addFooterBtn('open the playlist', 'tingle-btn tingle-btn--primary', function() {
+modal2.addFooterBtn('open playlist options', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
     modal2.close();
     modal3.open();
@@ -196,6 +196,7 @@ modal3.addFooterBtn('anxious', 'tingle-btn tingle-btn--default', function() {
 modal3.addFooterBtn('mad', 'tingle-btn tingle-btn--danger', function() {
     // here goes some logic
     modal3.close();
+    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('mad')[0]);
 });
 
 var modal4 = new tingle.modal({
@@ -223,12 +224,14 @@ modal4.setContent('<h1>would you like to feel it out or cheer up?</h1>');
 // add a button
 modal4.addFooterBtn('cheer up!', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
+    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('happy')[0]);
     modal4.close();
 });
 
 // add another button
 modal4.addFooterBtn('feel it out', 'tingle-btn tingle-btn--default', function() {
     // here goes some logic
+    openInNewTab('https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:' + choosePlaylist('sad')[0]);
     modal4.close();
 });
 
