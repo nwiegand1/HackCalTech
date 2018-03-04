@@ -337,6 +337,7 @@ function sentimentAnalysis()
 sentimentAnalysis()
 
 function openInNewTab(url) {
+
   var win = window.open(url, '_blank', 'location=yes,height=300,width=300,scrollbars=yes,status=yes, frameborder="0",allow="encrypted-media",allowtransparency="true"');
   win.focus();
 }
