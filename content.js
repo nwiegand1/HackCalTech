@@ -91,7 +91,7 @@ var modal2 = new tingle.modal({
     }
 });
 
-modal2.setContent('<h1>Can I suggest that you listen to some music? Here\'s what I\'d reccommend:</h1>');
+modal2.setContent('<h1>Can I suggest that you listen to some music to lighten your mood? Here\'s what I\'d reccommend:</h1>');
 
 // add a button
 modal2.addFooterBtn('open the playlist', 'tingle-btn tingle-btn--primary', function() {
@@ -104,6 +104,14 @@ modal2.addFooterBtn('open the playlist', 'tingle-btn tingle-btn--primary', funct
 modal2.addFooterBtn('maybe later', 'tingle-btn tingle-btn--default', function() {
     // here goes some logic
     modal2.close();
+    //express concern bc have visited lots of sad pages
+    var quant;
+    chrome.storage.local.get('sadNum', function(item) {
+        if (item.sadNum > 5)
+        {
+            modal5.open();
+        }
+    });
 });
 
 var modal3 = new tingle.modal({
@@ -180,6 +188,80 @@ modal4.addFooterBtn('feel it out', 'tingle-btn tingle-btn--default', function() 
     // here goes some logic
     modal4.close();
 });
+
+//modal 5
+var modal5 = new tingle.modal({
+    footer: true,
+    stickyFooter: false,
+    closeMethods: ['overlay', 'button', 'escape'],
+    closeLabel: "Close",
+    cssClass: ['custom-class-1', 'custom-class-2'],
+    onOpen: function() {
+        console.log('modal open');
+    },
+    onClose: function() {
+        console.log('modal closed');
+    },
+    beforeClose: function() {
+        // here's goes some logic
+        // e.g. save content before closing the modal
+        return true; // close the modal
+        return false; // nothing happens
+    }
+});
+
+modal5.setContent('<h1>we\'re concerned about you and have noticed that you have been looking at a lot of heavy content, please reach out to a mental health hotline if you\'re struggling</h1>');
+
+// add a button
+modal5.addFooterBtn('call a mental health hotline - teenline', 'tingle-btn tingle-btn--primary', function() {
+    // here goes some logic
+    callHotline();
+    modal5.close();
+
+});
+
+modal5.addFooterBtn('call a family member', 'tingle-btn tingle-btn--primary', function() {
+    // here goes some logic
+    modal5.close();
+});
+
+
+
+function callHotline()
+{
+    $(function() {
+        
+        const accountSid = 'AC789d4c412fd6578d774753707937db8b';
+        const authToken = 'b9b64a1dacafd3f1a8b8408ba5513e7f';
+
+        var body = {
+    'Url': 'https://handler.twilio.com/twiml/EH49f3c8b695ed4c888a72d8d799e5bd84',
+    'To': '+19252095421',
+    'From': '+18186167686'
+        };
+        var encoded = btoa(`${accountSid}:${authToken}`);
+
+        $.ajax({
+            url: `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Calls.json`,
+            beforeSend: function(xhrObj){
+                // Request headers
+                xhrObj.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                xhrObj.setRequestHeader("Authorization",`Basic ${encoded}`);
+            },
+            type: "POST",
+            // Request body
+            data: body,
+        })
+        .done(function(data){
+            console.log(data);
+        })
+        .fail(function(){
+
+        });
+     });   
+}
+
+
 
 function sentimentAnalysis()
 {
