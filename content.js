@@ -209,7 +209,7 @@ modal4.setContent('<h1>what would you like to do?</h1>');
 // add a button
 modal4.addFooterBtn('calm down', 'tingle-btn tingle-btn--primary', function() {
     // here goes some logic
-    openInNewTab('<iframe src=https://open.spotify.com/embed/user/spotify/playlist/' + choosePlaylist('anxiousFear')[0]);
+    openInNewTab('https://open.spotify.com/embed/user/spotify/playlist/' + choosePlaylist('anxiousFear')[0]);
     modal4.close();
 });
 
