@@ -25,6 +25,7 @@ We also major struggled with coming up with an idea: we wrote a TON down on a pi
 
 We then were divided into who wanted to sleep and who didn't. 
 
+Trying to make requests to MSFT cog services that were too long and didn't know how to cut them down
 
 Accomplishments We're Proud of:
 
