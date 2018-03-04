@@ -18,7 +18,8 @@
 
   "permissions": [
         "activeTab",
-        "tabs", "http://www.google.com/*"
+        "tabs", 
+        "storage"
     ]
 
 }
