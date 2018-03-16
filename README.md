@@ -93,7 +93,7 @@ discuss challenges we ran into:
     
  -we also ran into trouble trying to parse certain websites that had a lot of text content -> msft cognitive services only takes requests of 5100 characters so we needed to limit our requests to that
  
-## hongsen: mobile app and what we hope to do in the future
+## Hongsen: mobile app and what we hope to do in the future
 
 -app is a fun way to explore mood and music
 
